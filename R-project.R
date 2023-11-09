@@ -1,0 +1,13 @@
+library(rvest)
+library(dplyr)
+library(stringr)
+library(robotstxt)
+url <- 'https://www.imdb.com/list/ls027726877/'
+web <- read_html(url)
+View(web)
+title <- web %>% html_nodes('.lister-item-header a') %>% html_text()
+View(title)
+genre <- web %>% html_nodes('.genre') %>% html_text()
+View(genre)
+reating <- web %>% html_nodes('.ipl-rating-star.small .ipl-rating-star__rating') %>% html_text()
+View(reating)
